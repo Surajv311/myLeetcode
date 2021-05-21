@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int reverse(int x) {
+           
+    
+//     string n = to_string(x); 
+    
+//  reverse(n.begin(), n.end()); 
+   
+//     return n ; 
+
+        long long res = 0;
+        while(x) {
+            res = res*10 + x%10;
+            x /= 10;
+        }
+        return (res<INT_MIN || res>INT_MAX) ? 0 : res;
+
+    }
+};
