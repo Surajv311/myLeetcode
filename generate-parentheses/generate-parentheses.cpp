@@ -15,7 +15,7 @@ public:
             fun(open-1,close,ans,s+"(" ); 
         }
         
-        // using if & not else if... 
+        // using if condition & not else if... 
         
         if(open<close){
             // string a = ")"; 
