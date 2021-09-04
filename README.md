@@ -1,2 +1,6 @@
 # myLeetcode
-Leetcode practice
+
+Leetcode practice to improve my algorithmic thinking!. 
+
+-----------------
+
