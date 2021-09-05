@@ -30,10 +30,29 @@ ans.push_back(root->val);
         
 //         via recursion 
         
-        funR(root,ans);
+//        funR(root,ans);
         
 //         via iterative 
         
+        stack<TreeNode*> st; 
+        TreeNode*x;
+        while(root or !st.empty())
+        {
+            if(root)
+            {
+                st.push(root);
+                root = root->left;
+            }
+            else{
+                
+                root = st.top(); st.pop();
+                
+                ans.push_back(root->val);          
+                root = root->right;
+            }
+            
+            
+        }
         
         return ans;
     }
