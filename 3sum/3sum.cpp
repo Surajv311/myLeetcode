@@ -1,77 +1,64 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+  
+        /*
+        vector<vector<int>> ans; 
         
-//         vector<vector<int>> ans; 
+        vector<int> res; 
         
-//         vector<int> res; 
+        sort(nums.begin(),nums.end());
         
-//         sort(nums.begin(),nums.end());
+        int n = nums.size();
         
-//         int n = nums.size();
-        
-//         for(int i = n-1 ;i>=2;i-- )
-//         {
+        for(int i = n-1 ;i>=2;i-- )
+        {
+            int j = i-1; int k = 0;
             
-//             int j = i-1; int k = 0;
-            
-//             while(j>k)
-//             {
+            while(j>k)
+            {
+                int sum = nums[i] + nums[j] + nums[k]; 
                 
-//                 int sum = nums[i] + nums[j] + nums[k]; 
+                if(sum==0) {
+                    ans.push_back({nums[i],nums[j],nums[k]});
+                }
+    
+                else if(sum>0){
+                    j--;   
+                }
                 
-//                 if(sum==0) {
+                else{
                     
-// //                     res.push_back(nums[i]);
-// //                     res.push_back(nums[j]);
-// //                     res.push_back(nums[k]);
-                    
-//                     // ans.push_back(res);
-//                     ans.push_back({nums[i],nums[j],nums[k]});
-                    
-//                     // res.clear();
-                    
-//                 }
-                
-//                 else if(sum>0){
-                    
-//                     j--;
-                    
-//                 }
-                
-//                 else{
-                    
-//                     k++;
-//                 }
-                
-                
-                
-//             }
-           
-            
-//         }
+                    k++;
+                }
+            }
+        }
         
-// return ans; 
-        
+return ans; 
+        */
         
         
         vector<vector<int>> ans;
+        
 		sort(nums.begin(), nums.end());
-		int length = nums.size() - 1, ll, rr;
-		for ( int i = 0; i <= length; ++i )
+		
+        int l = nums.size(), a, b;
+		
+        for ( int i = 0; i < l; i++ )
 		{
-			if ( i > 0 && nums[i - 1] == nums[i] ) continue; 
-			ll = i + 1; rr = length;
-			while ( ll < rr )
+			if ( i > 0 and nums[i - 1] == nums[i] ) continue; 
+		
+            a = i + 1; b = l-1;
+			while ( a < b )
 			{
-				if ( nums[i] + nums[ll] + nums[rr] < 0 ) ++ll;
-				else if ( nums[i] + nums[ll] + nums[rr] > 0 ) --rr;
+				if ( nums[i] + nums[a] + nums[b] < 0 ) a++;
+				else if ( nums[i] + nums[a] + nums[b] > 0 ) b--;
 				else
 				{
-					vector<int> anotherAnswer { nums[i], nums[ll], nums[rr] };
-					ans.push_back(anotherAnswer);
-					++ll; //--rr;
-					while ( ll < rr && nums[ll] == nums[ll - 1] ) ++ll;
+					vector<int> x { nums[i], nums[a], nums[b] };
+					ans.push_back(x);
+					a++; //b--;
+					while ( a < b && nums[a] == nums[a - 1] ) a++;
 				}   
 			}    
 		}     
