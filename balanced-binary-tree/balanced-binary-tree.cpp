@@ -35,7 +35,7 @@ public:
         
 //         just find depth of tree & add just two conditions... 
         
-      int x = fun(root, flag); 
+       fun(root, flag); 
         
         return flag; 
     }
