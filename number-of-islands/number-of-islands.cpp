@@ -1,60 +1,40 @@
 class Solution {
 public:
     
-      
-    void dfs(vector<vector<char>> & grid, int x, int y, int row, int col)
-    {
+    void fun(vector<vector<char>>& grid,int i, int j, int m , int n){
         
-        // check for corner position of matrix...
+        if(i<0 or i>=m or j<0 or j>=n) return; 
         
-        if(x>=row or x < 0 or y >=col or y<0 or grid[x][y]!='1'){
-            return; 
-        }
+        if(grid[i][j]!='1') return; //means could be 2 or 0...
         
-        grid[x][y]='2'; // marking with 2.. means its land and its visited... 
+        grid[i][j]= '2';
         
-        // chekcing in all 4 directions... 
-        dfs(grid, x+1, y, row, col);
-         dfs(grid, x-1, y, row, col);
-          dfs(grid, x, y+1, row, col);
-           dfs(grid, x, y-1, row, col);
-
-         //  dfs(grid, x+1, y+1, row, col);
-         // dfs(grid, x-1, y-1, row, col);
-         //  dfs(grid, x-1, y+1, row, col);
-         //   dfs(grid, x+1, y-1, row, col);
+        fun(grid, i+1,j,m, n);
+        fun(grid, i,j+1,m, n);
+        fun(grid, i-1,j,m, n);
+        fun(grid, i,j-1,m, n);
         
+        return;
     }
-    
     
     int numIslands(vector<vector<char>>& grid) {
         
+        int m = grid.size(); int n = grid[0].size(); 
         
-            int row = grid.size(); 
+        int count = 0; 
         
-        int col = grid[0].size(); 
-        
-        // if row zero then false...
-        
-        if(row==0){
-            return 0;
-        }
-        
-        int count =0; 
-        
-        for(int i = 0 ; i < row; ++i){
+        for(int i = 0 ; i < m; i++){
             
-            for(int j = 0 ; j < col ; ++j){
-                
+            for(int j = 0 ; j < n; j++)
+            {             
                 if(grid[i][j]=='1'){
-                
-               dfs(grid, i , j , row, col);
-                ++count; 
-                }
+                    fun(grid, i,j,m, n);
+                    count++;
+                }   
             }
+            
         }
-        
+                
         return count; 
-        
     }
 };
