@@ -14,18 +14,18 @@ public:
      bool isSubtree(TreeNode* s, TreeNode* t) {
         
         if(s==0) return false;
-        if (sym(s,t)) return true;
+        if (check(s,t)) return true;
         
-        return isSubtree(s->left,t) || isSubtree(s->right,t);
+        return isSubtree(s->left,t) or isSubtree(s->right,t);
         
     }
-    bool sym(TreeNode *s, TreeNode *t)
+    bool check(TreeNode *s, TreeNode *t)
     {
-        if (s==0 and t==0) return true;
+        if (s==0 and t==0) return true; // both 0... hence true... 
         if (s==0 or t==0) return false;
         if (s->val != t->val) return false;
         
-        return sym(s->left, t->left) and sym(s->right, t->right);
+        return check(s->left, t->left) and check(s->right, t->right);
         
     }
 };
