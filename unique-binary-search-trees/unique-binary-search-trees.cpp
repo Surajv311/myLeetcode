@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    int fun(int n, int &count, vector<int> &dp){
+    int fun(int n, vector<int> &dp){
         
         if(n==0 or n==1) return 1; 
         
@@ -9,7 +9,7 @@ public:
         
         int  x =0; 
         for(int i = 1 ; i <= n; i++){
-        x += fun(i-1,x,dp)* fun(n-i,x,dp);
+        x += fun(i-1,dp)* fun(n-i,dp);
         dp[n] = x; 
         }
         
@@ -22,8 +22,8 @@ public:
 //         memoization 
 
         vector<int> dp(n+1,-1); 
-        int z=0;
-        return fun(n,z,dp);
+
+        return fun(n,dp);
         
         
         
