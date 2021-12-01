@@ -6,7 +6,7 @@ public:
         for(auto x:nums) tsum+=x; 
         
         // sum 
-        tsum = accumulate(nums.begin(), nums.end(),0);
+        // tsum = accumulate(nums.begin(), nums.end(),0);
         
 int cmax=0, cmin=0;
         int ma = nums[0], mi = nums[0]; // not assigning INT_MAX/MIN, since if only 1 element in the array then?... 
