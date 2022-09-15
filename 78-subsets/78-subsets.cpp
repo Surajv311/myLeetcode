@@ -1,10 +1,10 @@
 class Solution {
 public:
     
-    void fun(vector<vector<int>>& res, vector<int>& temp, vector<int>& nums, int pos){
+    void fun(vector<vector<int>>& res, vector<int>& temp, vector<int>& nums, int ind){
         res.push_back(temp);
 
-        for(int i=pos; i<nums.size(); ++i){
+        for(int i=ind; i<nums.size(); ++i){
             temp.push_back(nums[i]);
             fun(res, temp, nums, i + 1);
             temp.pop_back();
