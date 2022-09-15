@@ -1,14 +1,16 @@
 class Solution {
 public:
     
-    // void fun(vector<int>& nums, int i, vector<int>& sub, vector<vector<int>>& subs) {
-    //     subs.push_back(sub);
-    //     for (int j = i; j < nums.size(); j++) {
-    //         sub.push_back(nums[j]);
-    //         subsets(nums, j + 1, sub, subs);
-    //         sub.pop_back();
-    //     }
-    // }
+    void fun(vector<vector<int>>& res, vector<int>& temp, vector<int>& nums, int pos){
+        res.push_back(temp);
+
+        for(int i=pos; i<nums.size(); ++i){
+            temp.push_back(nums[i]);
+            fun(res, temp, nums, i + 1);
+            temp.pop_back();
+        }
+
+    }
     
     vector<vector<int>> subsets(vector<int>& nums) {
         
@@ -40,21 +42,28 @@ public:
         // iterative approach
         
         
-        vector<vector<int>> ans; 
-        ans.push_back({});
+//         vector<vector<int>> ans; 
+//         ans.push_back({});
         
-        for(auto x:nums){
+//         for(auto x:nums){
             
-            int n = ans.size(); 
+//             int n = ans.size(); 
             
-            for(int i = 0 ; i < n ;i++){
-                ans.push_back(ans[i]);
-                ans.back().push_back(x);
-            }
+//             for(int i = 0 ; i < n ;i++){
+//                 ans.push_back(ans[i]);
+//                 ans.back().push_back(x);
+//             }
             
-        }
+//         }
         
-        return ans; 
+//         return ans; 
+        
+        // recursive approach
+        
+      vector<vector<int>> res;
+        vector<int> temp;
+        fun(res, temp, nums, 0);
+        return res;
         
     }
 };
