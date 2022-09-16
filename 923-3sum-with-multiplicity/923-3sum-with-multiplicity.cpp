@@ -2,26 +2,23 @@ class Solution {
 public:
     int threeSumMulti(vector<int>& arr, int target) {
         
-        
+        unordered_map<int,int>mp;
         long long int MOD = 1e9 + 7; 
-        unordered_map<int,long> mp; 
-        
-        int ans = 0; 
-        
-        for(int i =0 ; i < arr.size(); i++){
+        int k = 0; 
+        int sum=0;
+        for(int i = 0; i<arr.size();i++){
             
-            ans = (ans+mp[target-arr[i]])%MOD; 
-            
-            for(int j = 0 ; j < i ; j++){
+            k=(k+mp[target-arr[i]])%MOD;
                 
-                mp[arr[i]+arr[j]]++;
-                
-            }
+                for(int j = 0;j<i;j++){
+                    sum = arr[j]+arr[i];
+                    mp[sum]++;
+                    
+                }
             
             
         }
         
-        return ans; 
-        
+        return k;
     }
 };
