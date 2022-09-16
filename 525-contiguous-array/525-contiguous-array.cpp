@@ -23,6 +23,7 @@ public:
             
             if(mp.find(sum)!=mp.end()){
                 r = max(r,i-mp[sum]);
+                // this actually works because say in  along array, if the sum is same at 2 different points while we iterate means, between the 2 points, the sum is gonna be 0... thats why we derived at same sum for 2 different points. 
             } 
             
             else mp[sum] = i; 
