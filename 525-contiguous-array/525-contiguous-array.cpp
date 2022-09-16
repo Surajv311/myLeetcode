@@ -19,7 +19,7 @@ public:
             
             sum+=nums[i]; 
             
-            // if(sum==0) r = max(r,i);
+            if(sum==0) r = max(r,i);
             
             if(mp.find(sum)!=mp.end()){
                 r = max(r,i-mp[sum]);
