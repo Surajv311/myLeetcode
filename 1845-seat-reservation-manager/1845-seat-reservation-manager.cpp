@@ -1,5 +1,7 @@
 class SeatManager {
 public:
+    
+    // note that we can also use priority queue... 
     set<int> s; 
     SeatManager(int n) {
      for(int i = 1 ; i <=n ; i++){
