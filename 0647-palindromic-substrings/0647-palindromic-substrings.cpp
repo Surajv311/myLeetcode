@@ -19,7 +19,7 @@ public:
         for(int i = 0 ; i < s.length(); i++){
             fun(i,i,s, vs);
             
-            if(i<=s.length()-1)
+            // if(i<=s.length()-1)
             fun(i,i+1,s, vs);
         }
         
