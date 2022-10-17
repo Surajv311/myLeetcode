@@ -1,10 +1,10 @@
 class Solution {
 public:
     
-    void fun(int i, int j, string s, vector<string>& se){
+    void fun(int i, int j, string s, vector<string>& vs){
         
         while(i>=0 and j<s.length() and s[i]==s[j]){
-            se.push_back(s.substr(i,j-i+1));
+            vs.push_back(s.substr(i,j-i+1));
             i--;j++; 
         }
         
@@ -15,12 +15,14 @@ public:
     int countSubstrings(string s) {
         
         if(s.length()==0) return 0; 
-        vector<string> se; 
+        vector<string> vs; 
         for(int i = 0 ; i < s.length(); i++){
-            fun(i,i,s, se);
-            fun(i,i+1,s, se);
+            fun(i,i,s, vs);
+            
+            if(i<=s.length()-1)
+            fun(i,i+1,s, vs);
         }
         
-        return se.size();
+        return vs.size();
     }
 };
