@@ -1,7 +1,8 @@
 class Solution {
 public:
-vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
-    if(n == 1) return {0}; // Special case: only one node, return it as the MHT root
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+
+   if(n == 1) return {0}; // Special case: only one node, return it as the MHT root
     if(n == 2) return {edges[0][0], edges[0][1]}; // Special case: only two nodes connected by an edge
 
     vector<int> adj[n];
@@ -50,13 +51,6 @@ vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
         }
     }
 
-    // After the while loop, the remaining nodes in the queue are the roots of MHTs
-    while (!q.empty()) {
-        ans.push_back(q.front());
-        q.pop();
-    }
-
     return ans;
-}
-
+    }
 };
