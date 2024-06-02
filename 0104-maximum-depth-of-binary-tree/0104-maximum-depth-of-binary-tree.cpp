@@ -13,6 +13,8 @@ class Solution {
 public:
     int maxDepth(TreeNode* root) {
         // practice
+        //Input: root = [3,9,20,null,null,15,7]
+        //Output: 3
         
         if(root==0) return 0; 
         
