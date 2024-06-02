@@ -15,20 +15,39 @@ public:
 //         } 
         
         // 15ms runtime - using iterative dfs 
-            stack<int> stk;
-    stk.push(basenode);
+//             stack<int> stk;
+//     stk.push(basenode);
+//     vis[basenode] = 1;
+
+//     while (!stk.empty()) {
+//         int current = stk.top();
+//         stk.pop();
+
+//         for (auto node_pair : adj[current]) {
+//             int node = node_pair.first;
+//             int edge_nature = node_pair.second;
+//             if (!vis[node]) {
+//                 if (edge_nature == 1) count++;
+//                 stk.push(node);
+//                 vis[node] = 1;
+//             }
+//         }
+//     }
+        
+        queue<int> q;
+    q.push(basenode);
     vis[basenode] = 1;
 
-    while (!stk.empty()) {
-        int current = stk.top();
-        stk.pop();
+    while (!q.empty()) {
+        int current = q.front();
+        q.pop();
 
         for (auto node_pair : adj[current]) {
             int node = node_pair.first;
             int edge_nature = node_pair.second;
             if (!vis[node]) {
                 if (edge_nature == 1) count++;
-                stk.push(node);
+                q.push(node);
                 vis[node] = 1;
             }
         }
